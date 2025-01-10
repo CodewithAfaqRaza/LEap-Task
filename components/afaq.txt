@@ -1,0 +1,76 @@
+
+        <div class="allEvents">
+            <?php foreach($organized_events as $event) { ?>
+
+
+            <!-- Event Details Card -->
+            <div class=" mt-6  bg-gray-800">
+
+                <div class="all_devs border-[1px] border-[#c0ff00]">
+                    <div class="border-b-[1px] border-gray-500 p-8">
+
+
+                        <h2 class="text-2xl font-bold mt-4">
+                            <a class="hover:text-[#c0ff00]" href="#"><?=  $event['event_title'] ?></a>
+                        </h2>
+
+
+                        <!-- Metadata row -->
+                        <div class="flex items-center space-x-6 mt-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="opacity-30  fa fa-map-marker-alt mr-2"></i>
+                                <span><?= $event['event_cat'] ?></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="opacity-30 fa fa-calendar-alt mr-2"></i>
+                                <span><?= $event['event_date'] ?></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class=" opacity-30 fa fa-clock mr-2"></i>
+                                <span><?= $event['event_start_time'] ?> To <?= $event['event_end_time'] ?></span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mt-2">
+                            <?php echo $event['event_desc'] ?>
+                        </p>
+                    </div>
+
+
+
+                    <!-- Speaker Cards -->
+                    <div class="grid grid-cols-1  p-6  sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+                        <!-- Speaker Card -->
+                        <?php foreach($event['speakers'] as $speaker) { ?>
+                        <div class="flex items-center border-2 border-[#c0ff00]  bg-gray-800 p-4">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gray-600 rounded- mr-4">
+                                <img src="<?= $speaker['profile_image'] ?>" alt="">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold"><a class="hover:text-[#c0ff00]"
+                                        href="#"><?= $speaker['sp_name'] ?></a></h3>
+                                <p class="text-sm text-gray-300"><?php echo $speaker['role'] ?> <br>
+
+                                    <span class="font- 
+                       semibold"><?php echo $speaker['company'] ?></span>
+                                </p>
+                            </div>
+                        </div>
+                        <?php } ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="border-b-[1px] border-gray-500">
+
+                <!-- Active tab label -->
+
+                <div class="bg-gray-600  mt-4 text-white font-semibold py-2 px-4  w-fit">
+                    End OF <?= ucwords($event['event_day']) ?>
+                </div>
+            </div>
+            <?php } ?>
+
+
+        </div>
