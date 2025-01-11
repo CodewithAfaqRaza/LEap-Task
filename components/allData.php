@@ -76,7 +76,7 @@ foreach ($value['cats'] as $key => $cat) {
 // print "</pre>";
     foreach ($organized_events as $event) { ?>
 <div class="allEvents">
-    <div class="bg-gray-900 border border-lime-400 rounded-md shadow-lg">
+    <div class="bg-gray-900 border border-lime-400  shadow-lg">
         <div class="p-6 border-b border-lime-400">
             <h2 class="text-2xl font-bold mb-2">
                 <a class="hover:text-lime-400" href="#"><?= htmlspecialchars($event['event_title']) ?></a>
@@ -117,7 +117,7 @@ foreach ($value['cats'] as $key => $cat) {
             <?php } ?>
         </div>
     </div>
-    <div class="mt-4 border-t border-gray-700">
+    <div class="mt-4 mb-4 border-t border-gray-700">
         <div class="bg-gray-800 text-white font-semibold py-2 px-4">
             End of <?= htmlspecialchars(ucwords($event['day_name'])) ?>
         </div>

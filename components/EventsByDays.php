@@ -1,13 +1,12 @@
 <?php  
 include "../include/database.php";  
 
-if (isset($_GET['day_id'])) {  
-    $days = [];  
+if (isset($_GET['day_id'])) {   
     $day_id = $_GET['day_id'];  
-    $sql = "SELECT * FROM days WHERE day_id = :day_id";  
+    $sql = "SELECT day_id, day_name FROM days WHERE day_id = :day_id";  
     $selectDataByDay = $pdo->prepare($sql);  
     $selectDataByDay->execute([':day_id' => $day_id]);  
-    $days = $selectDataByDay->fetch();  
+    $days = $selectDataByDay->fetch(PDO::FETCH_ASSOC);  
 
     $dataCatByDay = [];  
     $catDataByDay = "SELECT categories.cat_id, categories.cat_name  
